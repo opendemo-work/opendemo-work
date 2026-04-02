@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="OpenDemo - 智能化技术演示平台，覆盖 Kubernetes、AI/ML、云原生、Go、Node.js、Java、Python 等 12 大技术栈，532+ 生产级 Demo 与最佳实践。">
+  <title>OpenDemo · 智能化技术演示平台</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a class="brand" href="#">
+        <div class="brand-icon">OD</div>
+        <span data-i18n="brand">OpenDemo</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features" data-i18n="nav_features">核心特性</a></li>
+        <li><a href="#stacks" data-i18n="nav_stacks">技术栈</a></li>
+        <li><a href="#architecture" data-i18n="nav_architecture">架构</a></li>
+        <li><a href="#paths" data-i18n="nav_paths">学习路径</a></li>
+        <li><a href="https://github.com/opendemo/opendemo" target="_blank">GitHub</a></li>
+        <li>
+          <button id="lang-toggle" class="lang-toggle" aria-label="Toggle language">
+            <span class="lang-flag">🌐</span>
+            <span class="lang-text">EN</span>
+          </button>
+        </li>
+        <li><a class="btn btn-primary" href="https://github.com/opendemo/opendemo" target="_blank" data-i18n="nav_start">立即开始</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span data-i18n="hero_badge">🚀 生产就绪 · 持续更新 · 开源共建</span>
+          </div>
+          <h1>
+            <span data-i18n="hero_title_line1">从代码到云原生的</span><br>
+            <span data-i18n="hero_title_line2">一站式技术演示平台</span>
+          </h1>
+          <p class="lead" data-i18n="hero_lead">
+            OpenDemo 汇聚了 <strong>532+</strong> 个经过验证的技术 Demo，覆盖 Kubernetes、AI/ML、Go、Node.js、Java、数据库等 <strong>12 大技术栈</strong>。
+            配有智能化 CLI 工具、统一命名规范与 CLI 速查表，让学习与落地无缝衔接。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://github.com/opendemo/opendemo" target="_blank">⭐ <span data-i18n="btn_star">Star on GitHub</span></a>
+            <a class="btn btn-outline" href="#stacks" data-i18n="btn_browse">浏览技术栈</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="code-window">
+            <div class="code-header">
+              <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+              <span style="margin-left:8px;color:#94a3b8;font-size:0.8rem;">opendemo-cli</span>
+            </div>
+            <div class="code-body">
+              <div><span class="comment" data-i18n="code_comment_1"># 搜索并发相关的 Demo</span></div>
+              <div><span class="cmd">$</span> opendemo search <span class="arg">"goroutines"</span> --stack go</div>
+              <div class="out" data-i18n="code_out_1">✓ 找到 12 个匹配结果</div>
+              <div style="margin-top:10px;"><span class="comment" data-i18n="code_comment_2"># AI 智能生成新 Demo</span></div>
+              <div><span class="cmd">$</span> opendemo generate <span class="arg">kubernetes</span> <span class="arg">"canary-deployment"</span></div>
+              <div class="out" data-i18n="code_out_2">✓ Demo 已生成到 kubernetes/canary-deployment-demo/</div>
+              <div style="margin-top:10px;"><span class="comment" data-i18n="code_comment_3"># 质量检查与 README 同步</span></div>
+              <div><span class="cmd">$</span> opendemo verify --auto-fix</div>
+              <div class="out" data-i18n="code_out_3">✓ 170 个 K8s Demo 全部通过校验</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Stats -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div>
+          <div class="stat-number">532+</div>
+          <div class="stat-label" data-i18n="stat_demos">技术演示案例</div>
+        </div>
+        <div>
+          <div class="stat-number">12</div>
+          <div class="stat-label" data-i18n="stat_stacks">核心技术栈</div>
+        </div>
+        <div>
+          <div class="stat-number">4</div>
+          <div class="stat-label" data-i18n="stat_paths">条成长学习路径</div>
+        </div>
+        <div>
+          <div class="stat-number">1</div>
+          <div class="stat-label" data-i18n="stat_cli">智能化 CLI 工具</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="features_title">为什么选择 OpenDemo？</h2>
+        <p data-i18n="features_subtitle">不只是代码示例，而是面向真实生产场景的技术百科全书</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🧠</div>
+          <h3 data-i18n="feat_1_title">AI 智能生成 Demo</h3>
+          <p data-i18n="feat_1_desc">通过 opendemo-cli 的 AI 服务，输入主题即可自动生成完整的代码、配置与文档，覆盖从基础语法到云原生架构的任意场景。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔍</div>
+          <h3 data-i18n="feat_2_title">多维度智能检索</h3>
+          <p data-i18n="feat_2_desc">支持按技术栈、关键词、难度等级、学习时长精准定位所需 Demo， weighted scoring 让最相关的结果排在最前。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✅</div>
+          <h3 data-i18n="feat_3_title">质量校验与自动化</h3>
+          <p data-i18n="feat_3_desc">内置 DemoVerifier 与 QualityChecker，自动检查代码规范、README 完整性、元数据一致性，并支持一键修复。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📋</div>
+          <h3 data-i18n="feat_4_title">统一命名规范</h3>
+          <p data-i18n="feat_4_desc">每个技术栈均配备生产环境级别的 NAMING_CONVENTIONS.md，从变量命名到 K8s 资源标签，确保团队协作零歧义。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3 data-i18n="feat_5_title">CLI 速查表</h3>
+          <p data-i18n="feat_5_desc">为每个领域提供专业的命令行速查表（k8s-cli、linux-cli、database-cli 等），运维排障时拿来即用。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🛤️</div>
+          <h3 data-i18n="feat_6_title">体系化学习路径</h3>
+          <p data-i18n="feat_6_desc">从初学者到 AI 工程师，四条清晰的学习路径帮你循序渐进：基础 → 全栈 → 企业级 → AI 工程化。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stacks -->
+  <section class="section alt" id="stacks">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="stacks_title">全栈覆盖，生产导向</h2>
+        <p data-i18n="stacks_subtitle">每一个 Demo 都经过真实场景打磨，从代码到部署一应俱全</p>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-item">
+          <div class="stack-icon">☸️</div>
+          <div class="stack-name" data-i18n="stack_k8s">Kubernetes</div>
+          <div class="stack-count"><span>170</span> <span data-i18n="suffix_demos">Demos</span></div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">🦫</div>
+          <div class="stack-name">Go</div>
+          <div class="stack-count"><span>95</span> <span data-i18n="suffix_demos">Demos</span></div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">🟩</div>
+          <div class="stack-name">Node.js</div>
+          <div class="stack-count"><span>71</span> <span data-i18n="suffix_demos">Demos</span></div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">🐍</div>
+          <div class="stack-name">Python</div>
+          <div class="stack-count"><span>56</span> <span data-i18n="suffix_demos">Demos</span></div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">🗄️</div>
+          <div class="stack-name" data-i18n="stack_db">Database</div>
+          <div class="stack-count"><span>38</span> <span data-i18n="suffix_demos">Demos</span></div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">☕</div>
+          <div class="stack-name">Java</div>
+          <div class="stack-count"><span>23</span> <span data-i18n="suffix_demos">Demos</span></div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">🐧</div>
+          <div class="stack-name">Linux</div>
+          <div class="stack-count"><span>19</span> <span data-i18n="suffix_demos">Demos</span></div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">🤖</div>
+          <div class="stack-name" data-i18n="stack_ai">AI / ML</div>
+          <div class="stack-count"><span>15</span> <span data-i18n="suffix_demos">Demos</span></div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">🐳</div>
+          <div class="stack-name" data-i18n="stack_container">Container</div>
+          <div class="stack-count"><span>8</span> <span data-i18n="suffix_demos">Demos</span></div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">🌐</div>
+          <div class="stack-name" data-i18n="stack_traffic">Traffic</div>
+          <div class="stack-count"><span>8</span> <span data-i18n="suffix_demos">Demos</span></div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">📊</div>
+          <div class="stack-name" data-i18n="stack_monitoring">Monitoring</div>
+          <div class="stack-count"><span>7</span> <span data-i18n="suffix_demos">Demos</span></div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">📬</div>
+          <div class="stack-name" data-i18n="stack_messaging">Messaging</div>
+          <div class="stack-count"><span>4</span> <span data-i18n="suffix_demos">Demos</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Architecture -->
+  <section class="section" id="architecture">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="arch_title">平台架构与工作流程</h2>
+        <p data-i18n="arch_subtitle">搜索 → 生成 → 验证 → 同步，四位一体的 Demo 生命周期管理</p>
+      </div>
+      <div class="arch-steps">
+        <div class="arch-step">
+          <div class="step-num">1</div>
+          <h4 data-i18n="arch_step_1_title">智能搜索</h4>
+          <p data-i18n="arch_step_1_desc">DemoSearch 引擎基于 weighted scoring 精准匹配技术栈、关键词与难度。</p>
+        </div>
+        <div class="arch-step">
+          <div class="step-num">2</div>
+          <h4 data-i18n="arch_step_2_title">AI 生成</h4>
+          <p data-i18n="arch_step_2_desc">DemoGenerator 调用 AI 服务，自动生成代码、配置、README 与元数据。</p>
+        </div>
+        <div class="arch-step">
+          <div class="step-num">3</div>
+          <h4 data-i18n="arch_step_3_title">质量校验</h4>
+          <p data-i18n="arch_step_3_desc">DemoVerifier + QualityChecker 自动检查规范、完整性与一致性。</p>
+        </div>
+        <div class="arch-step">
+          <div class="step-num">4</div>
+          <h4 data-i18n="arch_step_4_title">README 同步</h4>
+          <p data-i18n="arch_step_4_desc">ReadmeUpdater 自动将新 Demo 汇总到主文档与交叉索引，保持信息实时一致。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Learning Paths -->
+  <section class="section alt" id="paths">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="paths_title">体系化学习路径</h2>
+        <p data-i18n="paths_subtitle">无论你是初学者还是资深工程师，都能找到适合自己的成长路线</p>
+      </div>
+      <div class="paths-grid">
+        <div class="path-card">
+          <div class="path-badge">🎓</div>
+          <div>
+            <h4 data-i18n="path_1_title">初学者路径（3-6 个月）</h4>
+            <p data-i18n="path_1_desc">Linux 基础 → Python 入门 → 数据库基础 → Node.js Web 开发，快速建立系统操作与编程思维。</p>
+            <div class="path-tags">
+              <span class="tag" data-i18n="tag_beginner">零基础友好</span>
+              <span class="tag" data-i18n="tag_hands_on">动手实践</span>
+            </div>
+          </div>
+        </div>
+        <div class="path-card">
+          <div class="path-badge">💼</div>
+          <div>
+            <h4 data-i18n="path_2_title">全栈开发者路径（6-12 个月）</h4>
+            <p data-i18n="path_2_desc">Node.js 全套 → Go 后端 → 数据库优化 → Kubernetes → AI/ML 入门，构建端到端交付能力。</p>
+            <div class="path-tags">
+              <span class="tag" data-i18n="tag_fullstack">前后端贯通</span>
+              <span class="tag" data-i18n="tag_cloudnative">云原生部署</span>
+            </div>
+          </div>
+        </div>
+        <div class="path-card">
+          <div class="path-badge">🏢</div>
+          <div>
+            <h4 data-i18n="path_3_title">企业级开发者路径（12-18 个月）</h4>
+            <p data-i18n="path_3_desc">Java 企业级 → 微服务架构 → 数据库高可用 → 监控运维 → 安全合规，掌握大规模系统设计。</p>
+            <div class="path-tags">
+              <span class="tag" data-i18n="tag_microservices">微服务</span>
+              <span class="tag" data-i18n="tag_ha">高可用</span>
+              <span class="tag" data-i18n="tag_security">安全合规</span>
+            </div>
+          </div>
+        </div>
+        <div class="path-card">
+          <div class="path-badge">🚀</div>
+          <div>
+            <h4 data-i18n="path_4_title">AI 工程师路径（18-24 个月）</h4>
+            <p data-i18n="path_4_desc">数学基础 → 深度学习 → LLM 训练 → MLOps → 模型部署，从算法到工程化全链路覆盖。</p>
+            <div class="path-tags">
+              <span class="tag" data-i18n="tag_llm">LLM</span>
+              <span class="tag" data-i18n="tag_mlops">MLOps</span>
+              <span class="tag" data-i18n="tag_serving">模型服务化</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-wrap">
+        <h2 data-i18n="cta_title">加入 OpenDemo 社区</h2>
+        <p data-i18n="cta_desc">与全球开发者一起共建生产级的技术演示平台。无论是提交 Bug、补充 Demo，还是改进文档，你的每一份贡献都将帮助更多人成长。</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a class="btn btn-primary" href="https://github.com/opendemo/opendemo" target="_blank" data-i18n="cta_btn_contribute">参与贡献</a>
+          <a class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.25);" href="mailto:contact@opendemo.dev" data-i18n="cta_btn_contact">联系我们</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand" style="margin-bottom:8px;">
+            <div class="brand-icon">OD</div>
+            OpenDemo
+          </div>
+          <p data-i18n="footer_slogan">智能化技术演示平台，让学习与实践无缝衔接。</p>
+        </div>
+        <div>
+          <h5 data-i18n="footer_col_1_title">项目</h5>
+          <ul>
+            <li><a href="https://github.com/opendemo/opendemo" target="_blank" data-i18n="footer_link_github">GitHub 仓库</a></li>
+            <li><a href="#features" data-i18n="nav_features">核心特性</a></li>
+            <li><a href="#stacks" data-i18n="nav_stacks">技术栈</a></li>
+            <li><a href="#paths" data-i18n="nav_paths">学习路径</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 data-i18n="footer_col_2_title">资源</h5>
+          <ul>
+            <li><a href="https://github.com/opendemo/opendemo/blob/main/README.md" target="_blank" data-i18n="footer_link_docs">主项目文档</a></li>
+            <li><a href="https://github.com/opendemo/opendemo/blob/main/opendemo-cli/README.md" target="_blank" data-i18n="footer_link_cli">CLI 使用指南</a></li>
+            <li><a href="https://github.com/opendemo/opendemo/blob/main/DETAILED_STRUCTURE.md" target="_blank" data-i18n="footer_link_structure">目录结构说明</a></li>
+            <li><a href="https://github.com/opendemo/opendemo/blob/main/PROJECT_STRUCTURE_ANALYSIS_REPORT.md" target="_blank" data-i18n="footer_link_analysis">架构分析报告</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 data-i18n="footer_col_3_title">社区</h5>
+          <ul>
+            <li><a href="https://github.com/opendemo/opendemo/issues" target="_blank" data-i18n="footer_link_issues">Issue 反馈</a></li>
+            <li><a href="https://github.com/opendemo/opendemo/pulls" target="_blank" data-i18n="footer_link_prs">Pull Requests</a></li>
+            <li><a href="https://github.com/opendemo/opendemo/discussions" target="_blank" data-i18n="footer_link_discussions">讨论区</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div data-i18n="footer_copy">© 2026 OpenDemo Contributors. Licensed under the MIT License.</div>
+        <div data-i18n="footer_made">Made with ❤️ by the community.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const i18n = {
+      zh: {
+        brand: "OpenDemo",
+        nav_features: "核心特性",
+        nav_stacks: "技术栈",
+        nav_architecture: "架构",
+        nav_paths: "学习路径",
+        nav_start: "立即开始",
+        hero_badge: "🚀 生产就绪 · 持续更新 · 开源共建",
+        hero_title_line1: "从代码到云原生的",
+        hero_title_line2: "一站式技术演示平台",
+        hero_lead: "OpenDemo 汇聚了 <strong>532+</strong> 个经过验证的技术 Demo，覆盖 Kubernetes、AI/ML、Go、Node.js、Java、数据库等 <strong>12 大技术栈</strong>。配有智能化 CLI 工具、统一命名规范与 CLI 速查表，让学习与落地无缝衔接。",
+        btn_star: "Star on GitHub",
+        btn_browse: "浏览技术栈",
+        code_comment_1: "# 搜索并发相关的 Demo",
+        code_out_1: "✓ 找到 12 个匹配结果",
+        code_comment_2: "# AI 智能生成新 Demo",
+        code_out_2: "✓ Demo 已生成到 kubernetes/canary-deployment-demo/",
+        code_comment_3: "# 质量检查与 README 同步",
+        code_out_3: "✓ 170 个 K8s Demo 全部通过校验",
+        stat_demos: "技术演示案例",
+        stat_stacks: "核心技术栈",
+        stat_paths: "条成长学习路径",
+        stat_cli: "智能化 CLI 工具",
+        features_title: "为什么选择 OpenDemo？",
+        features_subtitle: "不只是代码示例，而是面向真实生产场景的技术百科全书",
+        feat_1_title: "AI 智能生成 Demo",
+        feat_1_desc: "通过 opendemo-cli 的 AI 服务，输入主题即可自动生成完整的代码、配置与文档，覆盖从基础语法到云原生架构的任意场景。",
+        feat_2_title: "多维度智能检索",
+        feat_2_desc: "支持按技术栈、关键词、难度等级、学习时长精准定位所需 Demo， weighted scoring 让最相关的结果排在最前。",
+        feat_3_title: "质量校验与自动化",
+        feat_3_desc: "内置 DemoVerifier 与 QualityChecker，自动检查代码规范、README 完整性、元数据一致性，并支持一键修复。",
+        feat_4_title: "统一命名规范",
+        feat_4_desc: "每个技术栈均配备生产环境级别的 NAMING_CONVENTIONS.md，从变量命名到 K8s 资源标签，确保团队协作零歧义。",
+        feat_5_title: "CLI 速查表",
+        feat_5_desc: "为每个领域提供专业的命令行速查表（k8s-cli、linux-cli、database-cli 等），运维排障时拿来即用。",
+        feat_6_title: "体系化学习路径",
+        feat_6_desc: "从初学者到 AI 工程师，四条清晰的学习路径帮你循序渐进：基础 → 全栈 → 企业级 → AI 工程化。",
+        stacks_title: "全栈覆盖，生产导向",
+        stacks_subtitle: "每一个 Demo 都经过真实场景打磨，从代码到部署一应俱全",
+        stack_k8s: "Kubernetes",
+        stack_db: "Database",
+        stack_ai: "AI / ML",
+        stack_container: "Container",
+        stack_traffic: "Traffic",
+        stack_monitoring: "Monitoring",
+        stack_messaging: "Messaging",
+        suffix_demos: "Demos",
+        arch_title: "平台架构与工作流程",
+        arch_subtitle: "搜索 → 生成 → 验证 → 同步，四位一体的 Demo 生命周期管理",
+        arch_step_1_title: "智能搜索",
+        arch_step_1_desc: "DemoSearch 引擎基于 weighted scoring 精准匹配技术栈、关键词与难度。",
+        arch_step_2_title: "AI 生成",
+        arch_step_2_desc: "DemoGenerator 调用 AI 服务，自动生成代码、配置、README 与元数据。",
+        arch_step_3_title: "质量校验",
+        arch_step_3_desc: "DemoVerifier + QualityChecker 自动检查规范、完整性与一致性。",
+        arch_step_4_title: "README 同步",
+        arch_step_4_desc: "ReadmeUpdater 自动将新 Demo 汇总到主文档与交叉索引，保持信息实时一致。",
+        paths_title: "体系化学习路径",
+        paths_subtitle: "无论你是初学者还是资深工程师，都能找到适合自己的成长路线",
+        path_1_title: "初学者路径（3-6 个月）",
+        path_1_desc: "Linux 基础 → Python 入门 → 数据库基础 → Node.js Web 开发，快速建立系统操作与编程思维。",
+        path_2_title: "全栈开发者路径（6-12 个月）",
+        path_2_desc: "Node.js 全套 → Go 后端 → 数据库优化 → Kubernetes → AI/ML 入门，构建端到端交付能力。",
+        path_3_title: "企业级开发者路径（12-18 个月）",
+        path_3_desc: "Java 企业级 → 微服务架构 → 数据库高可用 → 监控运维 → 安全合规，掌握大规模系统设计。",
+        path_4_title: "AI 工程师路径（18-24 个月）",
+        path_4_desc: "数学基础 → 深度学习 → LLM 训练 → MLOps → 模型部署，从算法到工程化全链路覆盖。",
+        tag_beginner: "零基础友好",
+        tag_hands_on: "动手实践",
+        tag_fullstack: "前后端贯通",
+        tag_cloudnative: "云原生部署",
+        tag_microservices: "微服务",
+        tag_ha: "高可用",
+        tag_security: "安全合规",
+        tag_llm: "LLM",
+        tag_mlops: "MLOps",
+        tag_serving: "模型服务化",
+        cta_title: "加入 OpenDemo 社区",
+        cta_desc: "与全球开发者一起共建生产级的技术演示平台。无论是提交 Bug、补充 Demo，还是改进文档，你的每一份贡献都将帮助更多人成长。",
+        cta_btn_contribute: "参与贡献",
+        cta_btn_contact: "联系我们",
+        footer_slogan: "智能化技术演示平台，让学习与实践无缝衔接。",
+        footer_col_1_title: "项目",
+        footer_link_github: "GitHub 仓库",
+        footer_col_2_title: "资源",
+        footer_link_docs: "主项目文档",
+        footer_link_cli: "CLI 使用指南",
+        footer_link_structure: "目录结构说明",
+        footer_link_analysis: "架构分析报告",
+        footer_col_3_title: "社区",
+        footer_link_issues: "Issue 反馈",
+        footer_link_prs: "Pull Requests",
+        footer_link_discussions: "讨论区",
+        footer_copy: "© 2026 OpenDemo Contributors. Licensed under the MIT License.",
+        footer_made: "Made with ❤️ by the community."
+      },
+      en: {
+        brand: "OpenDemo",
+        nav_features: "Features",
+        nav_stacks: "Stacks",
+        nav_architecture: "Architecture",
+        nav_paths: "Learning Paths",
+        nav_start: "Get Started",
+        hero_badge: "🚀 Production-Ready · Continuously Updated · Open Source",
+        hero_title_line1: "A One-Stop Technology",
+        hero_title_line2: "Demonstration Platform",
+        hero_lead: "OpenDemo brings together <strong>532+</strong> verified hands-on demos spanning <strong>12 major technology stacks</strong> including Kubernetes, AI/ML, Go, Node.js, Java, and Databases. Equipped with an intelligent CLI, unified naming conventions, and CLI cheat sheets, it bridges learning and production seamlessly.",
+        btn_star: "Star on GitHub",
+        btn_browse: "Browse Stacks",
+        code_comment_1: "# Search for concurrency demos",
+        code_out_1: "✓ Found 12 matching results",
+        code_comment_2: "# AI-powered demo generation",
+        code_out_2: "✓ Demo generated at kubernetes/canary-deployment-demo/",
+        code_comment_3: "# Quality check & README sync",
+        code_out_3: "✓ All 170 K8s demos passed verification",
+        stat_demos: "Hands-on Demos",
+        stat_stacks: "Core Stacks",
+        stat_paths: "Learning Paths",
+        stat_cli: "Smart CLI Tool",
+        features_title: "Why OpenDemo?",
+        features_subtitle: "More than code snippets — a production-oriented technical encyclopedia",
+        feat_1_title: "AI-Generated Demos",
+        feat_1_desc: "Via the opendemo-cli AI service, simply enter a topic to auto-generate complete code, configurations, and documentation — from basic syntax to cloud-native architecture.",
+        feat_2_title: "Multi-Dimensional Search",
+        feat_2_desc: "Search by stack, keyword, difficulty, or estimated time. Weighted scoring ensures the most relevant demos appear first.",
+        feat_3_title: "Quality Assurance & Automation",
+        feat_3_desc: "Built-in DemoVerifier and QualityChecker automatically validate code standards, README completeness, and metadata consistency — with one-click fixes.",
+        feat_4_title: "Unified Naming Conventions",
+        feat_4_desc: "Every stack includes a production-grade NAMING_CONVENTIONS.md, covering everything from variable names to Kubernetes resource labels for zero-ambiguity teamwork.",
+        feat_5_title: "CLI Cheat Sheets",
+        feat_5_desc: "Professional command-line cheat sheets for every domain (k8s-cli, linux-cli, database-cli, etc.) — grab and go when troubleshooting.",
+        feat_6_title: "Structured Learning Paths",
+        feat_6_desc: "Four clear learning paths guide you from beginner to AI engineer: Fundamentals → Full-Stack → Enterprise → AI Engineering.",
+        stacks_title: "Full-Stack Coverage, Production-First",
+        stacks_subtitle: "Every demo is polished against real-world scenarios, from code to deployment",
+        stack_k8s: "Kubernetes",
+        stack_db: "Database",
+        stack_ai: "AI / ML",
+        stack_container: "Container",
+        stack_traffic: "Traffic",
+        stack_monitoring: "Monitoring",
+        stack_messaging: "Messaging",
+        suffix_demos: "Demos",
+        arch_title: "Platform Architecture & Workflow",
+        arch_subtitle: "Search → Generate → Verify → Sync — a unified Demo lifecycle",
+        arch_step_1_title: "Smart Search",
+        arch_step_1_desc: "The DemoSearch engine uses weighted scoring to precisely match stacks, keywords, and difficulty levels.",
+        arch_step_2_title: "AI Generation",
+        arch_step_2_desc: "DemoGenerator invokes the AI service to auto-create code, configs, READMEs, and metadata.",
+        arch_step_3_title: "Quality Verification",
+        arch_step_3_desc: "DemoVerifier + QualityChecker automatically inspect standards, completeness, and consistency.",
+        arch_step_4_title: "README Sync",
+        arch_step_4_desc: "ReadmeUpdater automatically rolls up new demos into the main docs and cross-reference indexes.",
+        paths_title: "Structured Learning Paths",
+        paths_subtitle: "Whether you're a beginner or a senior engineer, there's a path tailored for your growth",
+        path_1_title: "Beginner Path (3-6 Months)",
+        path_1_desc: "Linux Basics → Python Intro → Database Fundamentals → Node.js Web Development. Quickly build system operation and programming intuition.",
+        path_2_title: "Full-Stack Developer Path (6-12 Months)",
+        path_2_desc: "Full Node.js → Go Backend → Database Optimization → Kubernetes → AI/ML Intro. Build end-to-end delivery capabilities.",
+        path_3_title: "Enterprise Developer Path (12-18 Months)",
+        path_3_desc: "Enterprise Java → Microservices → Database High Availability → Monitoring & Ops → Security & Compliance. Master large-scale system design.",
+        path_4_title: "AI Engineer Path (18-24 Months)",
+        path_4_desc: "Math Fundamentals → Deep Learning → LLM Training → MLOps → Model Serving. Full pipeline from algorithms to engineering.",
+        tag_beginner: "Beginner-Friendly",
+        tag_hands_on: "Hands-On",
+        tag_fullstack: "Full-Stack",
+        tag_cloudnative: "Cloud-Native",
+        tag_microservices: "Microservices",
+        tag_ha: "High Availability",
+        tag_security: "Security & Compliance",
+        tag_llm: "LLM",
+        tag_mlops: "MLOps",
+        tag_serving: "Model Serving",
+        cta_title: "Join the OpenDemo Community",
+        cta_desc: "Collaborate with developers worldwide to build a production-grade technology demonstration platform. Whether fixing bugs, adding demos, or improving docs — every contribution helps others grow.",
+        cta_btn_contribute: "Contribute",
+        cta_btn_contact: "Contact Us",
+        footer_slogan: "An intelligent technology demonstration platform that bridges learning and practice.",
+        footer_col_1_title: "Project",
+        footer_link_github: "GitHub Repository",
+        footer_col_2_title: "Resources",
+        footer_link_docs: "Main Documentation",
+        footer_link_cli: "CLI Guide",
+        footer_link_structure: "Directory Structure",
+        footer_link_analysis: "Architecture Analysis",
+        footer_col_3_title: "Community",
+        footer_link_issues: "Issue Tracker",
+        footer_link_prs: "Pull Requests",
+        footer_link_discussions: "Discussions",
+        footer_copy: "© 2026 OpenDemo Contributors. Licensed under the MIT License.",
+        footer_made: "Made with ❤️ by the community."
+      }
+    };
+
+    let currentLang = 'zh';
+    const toggleBtn = document.getElementById('lang-toggle');
+    const langText = toggleBtn.querySelector('.lang-text');
+
+    function applyLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+      langText.textContent = lang === 'zh' ? 'EN' : '中';
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[lang][key] !== undefined) {
+          el.innerHTML = i18n[lang][key];
+        }
+      });
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      applyLang(currentLang === 'zh' ? 'en' : 'zh');
+    });
+
+    // Initialize
+    applyLang('zh');
+  </script>
+</body>
+</html>
